@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .container {
+      width: 350px;
+      margin: 0 auto;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      box-sizing: border-box;
+    }
+    #taskList {
+      list-style: none;
+      padding: 0;
+    }
+    #taskList li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    .close {
+      color: red;
+      float: right;
+      cursor: pointer;
+    }
+    .completed {
+      text-decoration: line-through;
+      color: gray;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>My To-Do List</h2>
+  <input type="text" id="newTask" placeholder="Add a new task...">
+  <button onclick="addTask()">Add</button>
+  <ul id="taskList"></ul>
+</div>
+
+<script>
+  // Fungsi untuk menambah tugas ke dalam list
+  function addTask() {
+    const taskInput = document.getElementById('newTask');
+    const taskText = taskInput.value.trim(); // Mengambil teks dari input
+
+    if (taskText === '') return; // Jika input kosong, tidak melakukan apa-apa
+
+    // Membuat elemen li baru untuk tugas
+    const li = document.createElement('li');
+    li.textContent = taskText;
+
+    // Tambahkan tombol delete "X"
+    const span = document.createElement('span');
+    span.textContent = 'X';
+    span.className = 'close';
+    span.onclick = function() {
+      deleteTask(this);
+    };
+    li.appendChild(span);
+
+    // Tambahkan event double-click untuk edit task
+    li.ondblclick = function() {
+      editTask(this);
+    };
+
+    // Tambahkan event click untuk mark as completed
+    li.onclick = function() {
+      this.classList.toggle('completed');
+    };
+
+    // Tambahkan tugas ke dalam daftar
+    document.getElementById('taskList').appendChild(li);
+
+    // Kosongkan input setelah tugas ditambahkan
+    taskInput.value = '';
+  }
+
+  // Fungsi untuk menghapus tugas dari list
+  function deleteTask(element) {
+    const li = element.parentElement;
+    li.remove(); // Menghapus elemen li yang terkait dengan tombol X
+  }
+
+  // Fungsi untuk mengedit tugas
+  function editTask(element) {
+    const oldText = element.textContent.replace('X', '').trim(); // Ambil teks lama
+    const newText = prompt('Edit your task:', oldText); // Munculkan prompt untuk input teks baru
+
+    if (newText !== null && newText.trim() !== '') {
+      element.firstChild.textContent = newText.trim(); // Mengganti teks lama dengan teks baru
+    }
+  }
+</script>
+
+</body>
+</html>

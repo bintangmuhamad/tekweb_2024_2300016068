@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Praktikum 2</title>
+  <link rel="stylesheet" href="sty.css">
+  <script defer src="scrip.js"></script>
+</head>
+
+<body>
+  <div class="controls">
+    <label for="bg-color">Change Background Color: </label>
+    <select id="bg-color">
+      <option value="">Select</option>
+      <option value="yellow">Yellow</option>
+      <option value="turquoise">Turquoise</option>
+      <option value="lightblue">Light Blue</option>
+      <option value="lightgreen">Light Green</option>
+      <option value="lightcoral">Light Coral</option>
+      <option value="lightgray">Light Gray</option>
+    </select>
+
+    <label for="font-size">Change Font Size: </label>
+    <input type="range" id="font-size" min="12" max="40" value="16">
+
+    <button id="toggle-dark-mode">Toggle Dark Mode</button>
+
+    <label for="font-style">Change Font Style: </label>
+    <select id="font-style">
+      <option value="sans-serif">Sans-serif</option>
+      <option value="serif">Serif</option>
+      <option value="arial">Arial</option>
+      <option value="arial-black">Arial Black</option>
+      <option value="courier-new">Courier New</option>
+      <option value="georgia">Georgia</option>
+    </select>
+  </div>
+
+  <div class="container">
+    <div class="profile-card">
+      <img src="pict1.png" alt="Profile Picture">
+      <h2>About Me</h2>
+      <p>Let me introduce myself, my name is muhammad bintang. I am currently an information systems student from Ahmad
+        Dahlan University. My hobby is fishing.</p>
+    </div>
+
+    <div class="profile-card">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <blockquote>
+            <p><a href="https://bintangmuhamad.github.io/tekweb_2024_2300016068/Praktikum_1/index.html">Praktikum 1</a>
+              Halaman HTML sederhana</p>
+          </blockquote>
+        </div>
+        <div class="project">
+          <blockquote>
+            <h3>Project 2 Title</h3>
+            <p>Brief description of Project 2.</p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-card contact">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:mbintangjaya2886@gmail.com">mbintangjaya2886@email.com</a></p>
+      <p>Github: <a href="https://github.com/bintangmuhamad">bintangmuhamad</a></p>
+    </div>
+  </div>
+</body>
+</html>
