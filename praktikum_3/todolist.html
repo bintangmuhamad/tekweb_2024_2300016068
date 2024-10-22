@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,10 +9,12 @@
     body {
       font-family: sans-serif;
     }
+
     .container {
       width: 350px;
       margin: 0 auto;
     }
+
     input[type="text"] {
       width: 100%;
       padding: 10px;
@@ -19,88 +22,96 @@
       border: 1px solid #ddd;
       box-sizing: border-box;
     }
+
     #taskList {
       list-style: none;
       padding: 0;
     }
+
     #taskList li {
       padding: 10px;
       border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
+
     .close {
       color: red;
-      float: right;
       cursor: pointer;
     }
+
     .completed {
       text-decoration: line-through;
       color: gray;
     }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <h2>My To-Do List</h2>
+    <input type="text" id="newTask" placeholder="Add a new task...">
+    <button onclick="addTask()">Add</button>
+    <ul id="taskList"></ul>
+  </div>
 
-<div class="container">
-  <h2>My To-Do List</h2>
-  <input type="text" id="newTask" placeholder="Add a new task...">
-  <button onclick="addTask()">Add</button>
-  <ul id="taskList"></ul>
-</div>
+  <script>
+    // Function to add tasks
+    function addTask() {
+      let taskInput = document.getElementById('newTask');
+      let taskText = taskInput.value.trim();
 
-<script>
-  // Fungsi untuk menambah tugas ke dalam list
-  function addTask() {
-    const taskInput = document.getElementById('newTask');
-    const taskText = taskInput.value.trim(); // Mengambil teks dari input
+      if (taskText === '') return; // Jangan tambahkan jika input kosong
 
-    if (taskText === '') return; // Jika input kosong, tidak melakukan apa-apa
+      // Create a new element
+      let li = document.createElement('li');
+      li.textContent = taskText;
 
-    // Membuat elemen li baru untuk tugas
-    const li = document.createElement('li');
-    li.textContent = taskText;
+      // Add to edit element
+      li.ondblclick = function () {
+        editTask(li);
+      };
 
-    // Tambahkan tombol delete "X"
-    const span = document.createElement('span');
-    span.textContent = 'X';
-    span.className = 'close';
-    span.onclick = function() {
-      deleteTask(this);
-    };
-    li.appendChild(span);
+      // Add event to mark as complete
+      li.onclick = function () {
+        li.classList.toggle('completed');
+      };
 
-    // Tambahkan event double-click untuk edit task
-    li.ondblclick = function() {
-      editTask(this);
-    };
+      // Add delete button
+      let deleteButton = document.createElement('span');
+      deleteButton.textContent = 'X';
+      deleteButton.className = 'close';
+      deleteButton.onclick = function () {
+        deleteTask(li);
+      };
 
-    // Tambahkan event click untuk mark as completed
-    li.onclick = function() {
-      this.classList.toggle('completed');
-    };
+      li.appendChild(deleteButton);
+      document.getElementById('taskList').appendChild(li);
 
-    // Tambahkan tugas ke dalam daftar
-    document.getElementById('taskList').appendChild(li);
-
-    // Kosongkan input setelah tugas ditambahkan
-    taskInput.value = '';
-  }
-
-  // Fungsi untuk menghapus tugas dari list
-  function deleteTask(element) {
-    const li = element.parentElement;
-    li.remove(); // Menghapus elemen li yang terkait dengan tombol X
-  }
-
-  // Fungsi untuk mengedit tugas
-  function editTask(element) {
-    const oldText = element.textContent.replace('X', '').trim(); // Ambil teks lama
-    const newText = prompt('Edit your task:', oldText); // Munculkan prompt untuk input teks baru
-
-    if (newText !== null && newText.trim() !== '') {
-      element.firstChild.textContent = newText.trim(); // Mengganti teks lama dengan teks baru
+      taskInput.value = ''; // Clear input after adding
     }
-  }
-</script>
 
+    // Function to delete tasks
+    function deleteTask(element) {
+      element.remove();
+    }
+
+    // Function for editing tasks
+    function editTask(element) {
+      let newTaskText = prompt('Edit your task:', element.firstChild.textContent);
+      if (newTaskText !== null) {
+        element.firstChild.textContent = newTaskText;
+      }
+    }
+
+    // Add event listener to detect "Enter"
+    document.getElementById('newTask').addEventListener('keypress', function (event) {
+      if (event.key === 'Enter') {
+        addTask(); // Call the add tasks function when teh enter key is pressed
+      }
+    });
+  </script>
 </body>
+
 </html>
