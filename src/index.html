@@ -10,41 +10,41 @@
 
     <!-- Navbar Section -->
     <header class="bg-white shadow-md py-4">
-        <div class="container mx-auto flex justify-between items-center px-8">
-            <a href="#" class="text-xl font-semibold text-blue-500">RemindMe</a>
-            <nav class="space-x-4">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-4 md:px-8">
+            <a href="#" class="text-xl font-semibold text-blue-500 mb-4 md:mb-0">RemindMe</a>
+            <nav class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-4">
                 <a href="#features" class="text-gray-600 hover:text-blue-500">Features</a>
                 <a href="#advantage" class="text-gray-600 hover:text-blue-500">Advantage</a>
                 <a href="#testimonials" class="text-gray-600 hover:text-blue-500">Testimonials</a>
                 <a href="#contact" class="text-gray-600 hover:text-blue-500">Contact</a>
             </nav>
-            <a href="#get-started" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">Get Started</a>
+            <a href="#get-started" class="bg-blue-500 text-white px-4 py-2 mt-4 md:mt-0 rounded-md hover:bg-blue-600">Get Started</a>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="hero" class="hero-section bg-blue-100 py-16 flex justify-center items-center">
-        <img src="Hero.png" alt="Hero" class="w-full">
+    <section id="hero" class="bg-blue-100 py-8 md:py-16 flex justify-center items-center">
+        <img src="Hero.png" alt="Hero" class="w-full max-w-screen-md">
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="features-section bg-white py-16 px-8">
-        <h2 class="text-3xl font-semibold text-center mb-12">Features</h2>
+    <section id="features" class="bg-white py-8 md:py-16 px-4 md:px-8">
+        <h2 class="text-3xl font-semibold text-center mb-8 md:mb-12">Features</h2>
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Feature Item 1 -->
-            <div class="feature-item bg-blue-50 p-6 rounded-lg shadow-md text-center">
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center">
                 <div class="text-5xl text-blue-500 mb-4">📅</div>
                 <h3 class="text-xl font-semibold mb-2">Feature 1</h3>
                 <p class="text-gray-600">Description for Feature 1, explaining its benefits and functionality to the user in a concise manner.</p>
             </div>
             <!-- Feature Item 2 -->
-            <div class="feature-item bg-blue-50 p-6 rounded-lg shadow-md text-center">
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center">
                 <div class="text-5xl text-blue-500 mb-4">⏰</div>
                 <h3 class="text-xl font-semibold mb-2">Feature 2</h3>
                 <p class="text-gray-600">Description for Feature 2, explaining its benefits and functionality to the user in a concise manner.</p>
             </div>
             <!-- Feature Item 3 -->
-            <div class="feature-item bg-blue-50 p-6 rounded-lg shadow-md text-center">
+            <div class="bg-blue-50 p-6 rounded-lg shadow-md text-center">
                 <div class="text-5xl text-blue-500 mb-4">📌</div>
                 <h3 class="text-xl font-semibold mb-2">Feature 3</h3>
                 <p class="text-gray-600">Description for Feature 3, explaining its benefits and functionality to the user in a concise manner.</p>
@@ -53,43 +53,41 @@
     </section>
 
     <!-- Advantage Section -->
-    <section id = advantage class="advantage-section bg-gray-100 py-16">
+    <section id="advantage" class="bg-gray-100 py-8 md:py-16 px-4 md:px-8">
         <h2 class="text-3xl font-semibold text-center mb-8">Advantage</h2>
-        <!-- Full-width image, responsive to screen size -->
         <div class="w-full flex justify-center">
-            <img src="Advantage.png" alt="Advantage Image" class="w-full">
+            <img src="Advantage.png" alt="Advantage Image" class="w-full max-w-screen-lg">
         </div>
-        <!-- Description aligned to the right -->
-        <div class="px-8 py-4 text-center">
-            <p class="text-lg text-gray-700">Set up task and schedule with the best features to organize your needs.</p>
+        <div class="px-4 md:px-8 py-4 text-center">
+            <p class="text-lg text-gray-700">Set up tasks and schedule with the best features to organize your needs.</p>
         </div>
     </section>
 
-
     <!-- User Paging Section (Download Section) -->
-    <section class="user-paging-section bg-blue-500 text-white py-16 flex justify-center items-center ">
+    <section class="bg-blue-500 text-white py-8 md:py-16 px-4 md:px-8 flex justify-center items-center">
         <div class="text-center">
-            <p class="text-xl font-semibold mb-6">Download an app now and the various benefits you will get immediately</p>
-            <div class="flex justify-center gap-4 rounded-xl">
-                <button class="bg-white text-blue-500 font-semibold py-2 px-6 rounded-full"  >Download App</button>
+            <p class="text-lg md:text-xl font-semibold mb-6">Download an app now and the various benefits you will get immediately</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4 rounded-xl">
+                <button class="bg-white text-blue-500 font-semibold py-2 px-6 rounded-full">Download App</button>
                 <button class="border border-white font-semibold py-2 px-6 rounded-full">About App</button>
             </div>
         </div>
     </section>
 
     <!-- Testimonial Section -->
-    <section id="testimonials" class="testimonial-section bg-white py-16 px-8">
+    <section id="testimonials" class="bg-white py-8 md:py-16 px-4 md:px-8">
         <h2 class="text-3xl font-semibold text-center mb-8">Testimonials</h2>
         <div class="w-full flex justify-center">
-            <img src="Testimonial.png" alt="Testimonial Image" class="w-full">
+            <img src="Testimonial.png" alt="Testimonial Image" class="w-full max-w-screen-md">
         </div>
     </section>
 
     <!-- Footer Section -->
-    <footer id="contact" class="footer-section bg-gray-800 text-white py-8">
+    <footer id="contact" class="bg-gray-800 text-white py-8 px-4 md:px-8">
         <div class="w-full flex justify-center">
-            <img src="Footer.png" alt="Footer Image" class="w-full">
+            <img src="Footer.png" alt="Footer Image" class="w-full max-w-screen-md">
         </div>
+        <p class="text-center mt-4">&copy; 2024 RemindMe. All rights reserved.</p>
     </footer>
 
 </body>
